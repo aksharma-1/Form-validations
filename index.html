@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">    
+    <script>
+        function run_clock()
+        {
+            m=1;
+            s=60;
+            setInterval(kk,1000)
+            function kk(){
+                s--;
+                document.getElementById("time_out").innerText="Time left :- "+"0"+m+":"+s;
+                if(s==0)
+                {
+                    m--;
+                    s=60;
+                }
+                if(s<10)
+                {
+                 document.getElementById("time_out").innerText="Time left :- "+"0"+m+":"+"0"+s;
+                }
+                if(m<0)
+                {
+                    location.reload();
+                }
+            }
+            setInterval(ak,1000)
+            function ak(){
+                var d=new Date();
+                document.getElementById("show_time").innerText="Time:-"+d.toLocaleTimeString();
+                var count_hour=d.getHours();
+                // document.getElementById("greeting").innerText=count_hour;
+
+                if(count_hour>=5 && count_hour<12)
+                {
+                    document.getElementById("greeting").innerText="Good Morning";
+                    document.getElementById("greeting_img").src="image/a6x4_6208_210409.jpg";
+                }
+                else if(count_hour>=12 && count_hour<17)
+                {
+                    document.getElementById("greeting").innerText="Good Afternoon";
+                    document.getElementById("greeting_img").src="image/sunset-5286741_960_720 (1).webp";
+                }
+                else if(count_hour>=17 && count_hour<20)
+                {
+                    document.getElementById("greeting").innerText="Good Evening";
+                    document.getElementById("greeting_img").src="image/7507.jpg";
+                }
+                else
+                {
+                    document.getElementById("greeting").innerText="Good Night";
+                    document.getElementById("greeting_img").src="image/goodnight.jpg";
+                }
+            }
+
+        }
+        function validation()
+        {
+            // alert("OK");
+            // ----------------------- START FIRST NAME VALIDATION-------------------------------
+            fn=document.getElementById("f_n").value;
+            upper_fn=fn.toUpperCase();
+            document.getElementById("f_n").value=upper_fn;
+            char=/[^A-Z]/gi;
+            f_n.value=f_n.value.replace(char,"");
+            pattern=/^[A-Z]{3,}$/;
+            fn_result=false;
+            if(pattern.test(fn))
+            {
+                fn_result=true;
+            }
+            // --------------------------- END FIRST NAME VALIDATION----------------------------------
+
+            // ----------------------------START LAST NAME VALIDATION---------------------------------
+            ln=document.getElementById("l_n").value;
+            upper_ln=ln.toUpperCase();
+            document.getElementById("l_n").value=upper_ln;
+            l_n.value=l_n.value.replace(char,"");
+            ln_result=false;
+            if(pattern.test(ln))
+            {
+                ln_result=true;
+            }
+            // ----------------------------END LAST NAME VALIDATION---------------------------------
+
+            // ----------------------------START EMAIL VALIDATION----------------------------------
+            var EM=document.getElementById("email").value;
+            var PATTERN=/^[A-Za-z]{2,}[0-9]{0,}[@]{1}[A-Za-z]{3,}[.]{1}[A-Za-z]{2,}$/;
+            var email_result;
+            if(EM=="")
+            {
+                email_result=false;
+                bt=document.getElementById("submit_btn");
+                bt.disabled=true;
+
+            }
+            else
+            {
+                if(PATTERN.test(EM))
+                {
+                  email_result=true;
+                }
+                else
+                {
+                    email_result=false;
+                    bt=document.getElementById("submit_btn");
+                    bt.disabled=true;
+                } 
+            }
+            // ----------------------------END EMAIL VALIDATION------------------------------------
+
+            // ----------------------------STRAT PASSWORD VALIDATION-------------------------------
+            var PASS=document.getElementById("pass").value;
+            var pass_result;
+            if(PASS=="")
+            {
+                pass_result=false;
+                bt=document.getElementById("submit_btn");
+                bt.disabled=true;
+            }
+            else{
+                if(PASS.length<=4)
+                {
+                    document.getElementById("pass_error").innerText="Password is too short";
+                    pass_result=false;
+                    bt=document.getElementById("submit_btn");
+                    bt.disabled=true;
+                }
+                else{
+                    document.getElementById("pass_error").innerText="";
+                    pass_result=true;
+                }
+            } 
+            // ----------------------------END PASSWORD VALIDATION---------------------------------
+
+            // ----------------------------STRAT CONFIRM PASSWORD VALIDATION-----------------------
+            var CONF_PASS=document.getElementById("conf_pass").value;
+            var conf_result;
+            if(CONF_PASS=="")
+            {
+                // document.getElementById("conf_error").innerText="Please enter password again";
+                conf_result=false; 
+                bt=document.getElementById("submit_btn");
+                bt.disabled=true;
+            }
+            else{
+                if(CONF_PASS!==PASS)
+                {
+                    document.getElementById("conf_error").innerText="Password does not match";
+                    conf_result=false;
+                    bt=document.getElementById("submit_btn");
+                    bt.disabled=true;
+                }
+                else{
+                    document.getElementById("conf_error").innerText="";
+                    conf_result=true;
+        
+                }    
+            }
+            // ----------------------------END CONFIRM PASSWORD VALIDATION-------------------------
+            
+            // ----------------------------STRAT DOB VALIDATION------------------------------------
+            var DOB=document.getElementById("dob").value;
+            var dob_result;
+            if(DOB=="")
+            {
+                dob_result=false;
+                bt=document.getElementById("submit_btn");
+                bt.disabled=true;
+            }
+            else{
+                document.getElementById("dob_error").innerText="";
+                dob_result=true;
+            }
+            // ----------------------------END DOB VALIDATION--------------------------------------
+            
+            // ----------------------------STRAT GENDER VALIDATION---------------------------------
+            var GENDER=document.getElementsByName("gender");
+            var gender_result=false;
+            for(i=0;i<GENDER.length;i++)
+            {
+              if(GENDER[i].checked==true)
+              {
+                  document.getElementById("gender_error").innerText="";
+                  gender_result=true;
+              }
+            }
+            // ----------------------------END GENDER VALIDATION-----------------------------------
+
+            // ----------------------------START MOBILE VALIDATION-----------------------------------
+            var MOBILE=document.getElementById("mobile").value;
+            var mob_result;
+            if(MOBILE.length=="")
+            {
+                mob_result=false;
+            }
+            else{
+                if(MOBILE.length==10){
+                    mob_result=true;
+                }
+
+            }
+            // ----------------------------END MOBILE VALIDATION-------------------------------------
+
+            // ----------------------------START HOBBIES VALIDATION----------------------------------
+            var HOBBY=document.getElementsByName("hobby");
+            var hooby_result=false;
+            count=0;
+            for(i=0;i<HOBBY.length;i++)
+            {
+                if(HOBBY[i].checked==true)
+                {
+                    count++;
+                }
+            }
+            if(count==1)
+            {
+                document.getElementById("hobby_error").innerText="please select 2 hobbies";
+                bt=document.getElementById("submit_btn");
+                bt.disabled=true;
+            }
+            if(count>=2)
+            {
+                document.getElementById("hobby_error").innerText="";
+                hobby_result=true;
+            }
+            // ----------------------------END HOBBIES VALIDATION------------------------------------  
+
+
+
+
+
+            // ----------------------------SUBMIT BUTTON ENABLE DISABLE-----------------------------
+            if(fn_result==true && ln_result==true && email_result==true && conf_result==true && dob_result==true && gender_result==true && hobby_result==true && mob_result==true)
+            {
+                    bt=document.getElementById("submit_btn");
+                    bt.disabled=false;
+            }
+            else{
+                bt=document.getElementById("submit_btn");
+                bt.disabled=true;
+            }
+        }
+        function pass_show()
+        {
+            class_name=document.getElementById("close").className;
+            if(class_name=="fa fa-eye-slash")
+            {
+                document.getElementById("pass").type="text";
+                document.getElementById("close").className="fa fa-eye";
+            }
+            if(class_name=="fa fa-eye")
+            {
+                document.getElementById("pass").type="password";
+                document.getElementById("close").className="fa fa-eye-slash";
+            }
+        }
+    </script>
+</head>
+<body onload="run_clock()">
+    <div class="first_div">
+        <center><br><br>
+        <p id="show_time"></p><br>
+        <img src="" alt="" id="greeting_img"><br><br><br>
+        <p id="greeting"></p><br>
+        </center>
+    </div>
+    <div class="second_div">
+        <p id="time_out"></p><br>
+        <center><h3 id="register">Registration Form</h3></center>
+        <div class="container">
+        <form action="" method="post">
+            First Name:- <input class="input" type="text" id="f_n" onkeyup="validation()">&emsp;<span id="name_error" name="FirstName"></span><br><br>
+
+            Last Name:- <input class="input" type="text" name="LastName" id="l_n"onkeyup="validation()"><span id="last_error"></span><br><br>
+
+            E-mail:-<input class="input" type="text" id="email" name="Email" onkeyup="validation()"><span id="email_error"></span><br><br>
+
+            Password:-<input class="input" type="password" id="pass" name="Password" onkeyup="validation()">
+                <i id="close" class="fa fa-eye-slash" onclick="pass_show()"></i>
+                <span id="pass_error"></span><br><br>
+
+            Confirm Password:-<input class="input" type="password" id="conf_pass" onkeyup="validation()"><span id="conf_error"></span><br><br>
+
+            DOB:-<input type="date" class="input" id="dob" name="DOB" onchange="validation()"><span id="dob_error"></span><br><br>
+
+            Gender:- &emsp;Male<input type="radio" name="gender" id="male_radio" onclick="validation()">&emsp;
+                     Female<input type="radio" name="gender" id="female_radio" onclick="validation()"><span id="gender_error"></span><br><br>
+
+            Mobile No. :-<input type="text" id="mobile" class="input" name="Mobile" onkeyup="validation()" maxlength="10"><span id="mobile_error"></span><br><br>
+            Hobbies:- <input type="checkbox" name="hobby" onclick="validation()">Cricket&emsp;
+                      <input type="checkbox" name="hobby" onclick="validation()">Football&emsp;
+                      <input type="checkbox" name="hobby" onclick="validation()">Reading&emsp;<span id="hobby_error"></span><br><br>
+        <input type="submit" id="submit_btn" disabled>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

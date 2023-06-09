@@ -1,0 +1,93 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.first_div{
+    width: 50%;
+    height: 745px;
+    float: left;
+    /* background-color: rgb(100, 86, 204); */
+}
+#register{
+    background-color: rgba(135, 199, 118, 0.605);
+}
+.first_div img{
+    width: 500px;
+    height: 478px;
+    border-radius: 15px;
+    box-shadow: 10px 20px 35px;
+    position: relative;
+    top: 16px;
+}
+
+#show_time{
+    position: relative;
+    top: 4px;
+    font-size: 30px;
+    font-style: italic;
+    background-color: rgba(135, 199, 118, 0.605);;
+}
+#greeting{
+    background-color: rgba(135, 199, 118, 0.605);
+    width: 300px;
+    border-radius: 10px;
+    font-size: 40px;
+    font-style: italic;
+    position: relative;
+    top: 20px;
+}
+.second_div{
+    width: 50%;
+    height: 745px;
+    float: right;
+    /* background-color: rgb(204, 86, 86); */
+}
+.second_div #time_out{
+    font-size: 20px;
+}
+.second_div #register{
+    font-size: 30px;
+}
+span{
+    color: red;
+}
+.container{
+    padding: 15px;
+    position: relative;
+    top: 30px;
+    left: 100px;
+    width: 500px;
+    height: 450px;
+    box-shadow: 10px 20px 35px;
+    line-height: 25px;
+    border-radius: 20px;
+}
+#submit_btn{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    position: relative;
+    top: 80px;
+    left: 300px;
+    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgba(135, 199, 118, 0.605);
+}
+#submit_btn:hover{
+    cursor: pointer;
+    border: 2px solid black;
+    background-color: rgb(176, 240, 131);
+}
+.input{
+    height: 25px;
+    width: 170px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.fa:hover{
+    cursor: pointer;
+}
+#close{
+    position: relative;
+    right: 25px;
+}
